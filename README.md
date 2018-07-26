@@ -62,4 +62,4 @@ https://help.github.com/articles/creating-a-personal-access-token-for-the-comman
 - Add styling to your components.
 - Repeat over the users followers and display them below the selected users profile information.
 
-No wireframe for pro mode.
+No wireframe for stretch goals.
