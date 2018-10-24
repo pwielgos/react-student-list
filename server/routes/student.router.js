@@ -16,7 +16,7 @@ router.get('/', (req, res) => {
         });
 });
 
-// POST /treats
+// POST students
 router.post('/', (req, res) => {
     const newStudent = req.body.github_name;
     const sqlText = `INSERT INTO students (github_name) VALUES ($1)`;
