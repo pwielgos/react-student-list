@@ -1,38 +1,34 @@
-var express = require('express');
-var router = express.Router();
-// Make sure to Google mongoose when looking for resources
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
+const express = require('express');
+const router = express.Router();
+const pool = require('../modules/pool');
 
-var StudentSchema = new Schema({ github: String });
-// Mongoose gives us an object that has properties we
-// can use to talk to the database.
-var Student = mongoose.model('Student', StudentSchema, 'students');
-
-// POST Route
-router.post('/', function (req, res) {
-    console.log(req.body);
-    var studentToAdd = new Student(req.body);
-    studentToAdd.save(function (err, data) {
-        if (err) {
-            console.log(err);
+// GET students
+router.get('/', (req, res) => {
+    // Get all of the treats from the database
+    const sqlText = `SELECT * FROM students`;
+    pool.query(sqlText)
+        .then((result) => {
+            res.send(result.rows);
+        })
+        .catch((error) => {
+            console.log(`Error making database query ${sqlText}`, error);
             res.sendStatus(500);
-        } else {
+        });
+});
+
+// POST students
+router.post('/', (req, res) => {
+    const newStudent = req.body.github_name;
+    const sqlText = `INSERT INTO students (github_name) VALUES ($1)`;
+
+    pool.query(sqlText, [newStudent])
+        .then((result) => {
             res.sendStatus(201);
-        }
-    }); // END SAVE
-}); // END POST Route
-
-// GET Route
-router.get('/', function (req, res) {
-    Student.find({}, function (err, foundStudents) {
-        if (err) {
-            console.log("ERROR! : ", err);
+        })
+        .catch((error) => {
+            console.log(`Error making database query ${sqlText}`, error);
             res.sendStatus(500);
-        } else {
-            res.send(foundStudents);
-        }
-    }); // END FIND
-}); // END GET Route
+        });
+});
 
 module.exports = router;
