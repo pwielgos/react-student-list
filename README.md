@@ -19,7 +19,7 @@ npm run client
 
 Between the server and client, you'll need two terminal tabs! Because we're using `nodemon` and `create-react-app`, both our client side and server side will automatically spin back up when changes are made!
 
-> Note: You may also start PostgreSql with `postgresql`, in that case, you will need three terminal tabs.
+> Note: You may also start PostgreSql in which case you may need three terminal tabs.
 
 ## Base Mode
 
