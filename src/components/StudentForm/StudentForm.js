@@ -8,30 +8,22 @@ class Student {
 };
 
 class StudentForm extends Component {
-    constructor() {
-        super();
-
-        this.state = new Student();
-
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-        this.clearStudentFields = this.clearStudentFields.bind(this);
-    }
+    state = new Student();
 
     // Called when the input field changes
-    handleChange(event) {
+    handleChange = (event) => {
         this.setState(new Student(event.target.value));
     }
 
     // Called when the submit button is pressed
-    handleSubmit(event) {
+    handleSubmit = (event) => {
         event.preventDefault();
         this.props.addStudent(this.state);
         this.clearStudentFields();
     }
 
     // Clear fields of the form by reseting the user
-    clearStudentFields() {
+    clearStudentFields = () => {
         this.setState(new Student());
     }
 

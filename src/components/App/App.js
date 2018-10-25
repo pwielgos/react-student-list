@@ -4,19 +4,12 @@ import './App.css';
 import StudentForm from '../StudentForm/StudentForm';
 
 class App extends Component {
-  constructor() {
-    super();
-    // Keep track of the student list
-    this.state = {
-      studentList: [],
-    };
-
-    // Give our function access to `this`
-    this.addStudent = this.addStudent.bind(this);
-  }
+  state = {
+    studentList: [],
+  };
 
   // This function is called by the StudentForm when the submit button is pressed
-  addStudent(newStudent) {
+  addStudent = (newStudent) => {
     console.log(newStudent);
     // POST your data here
   }
