@@ -4,7 +4,7 @@ Before you get started make sure to look through the code that has been provided
 
 ### Setup
 
-Start mongo if you haven't already with `brew services start`. Running the server code requires `nodemon`. If you don't already have `nodemon`, install it globally with `npm install nodemon --global`.
+Start postgres if you haven't already with `brew services start`. Running the server code requires `nodemon`. If you don't already have `nodemon`, install it globally with `npm install nodemon --global`.
 
 ```
 npm install
@@ -19,7 +19,7 @@ npm run client
 
 Between the server and client, you'll need two terminal tabs! Because we're using `nodemon` and `create-react-app`, both our client side and server side will automatically spin back up when changes are made!
 
-> Note: You may also start mongo with `mongod`, in that case, you will need three terminal tabs.
+> Note: You may also start PostgreSql with `postgresql`, in that case, you will need three terminal tabs.
 
 ## Base Mode
 
