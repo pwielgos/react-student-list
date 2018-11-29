@@ -4,7 +4,7 @@ Before you get started make sure to look through the code that has been provided
 
 ### Setup
 
-Start postgres if you haven't already with `brew services start`. Running the server code requires `nodemon`. If you don't already have `nodemon`, install it globally with `npm install nodemon --global`.
+Start postgres if you haven't already with `brew services start`.
 
 ```
 npm install
