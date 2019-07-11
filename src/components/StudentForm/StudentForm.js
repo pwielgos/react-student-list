@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 class Student {
     constructor(github = '') {
-        this.github = github;
+        this.github_name = github;
     }
 };
 
@@ -30,7 +30,7 @@ class StudentForm extends Component {
     render() {
         return (
             <form onSubmit={this.handleSubmit}>
-                <input onChange={this.handleChange} placeholder="GitHub username" value={this.state.github} name="github" />
+                <input onChange={this.handleChange} placeholder="GitHub username" value={this.state.github} name="github_name" />
                 <input type="submit" value="Submit" />
             </form>
         );
