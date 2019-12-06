@@ -21,3 +21,28 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+body {
+  background-color: rgb(113, 131, 163);
+}
+
+table {
+  border-collapse: collapse;
+  width: 60%;
+  margin: auto;
+  background-color: whitesmoke;
+}
+
+ th, tr, td {
+  text-align: center;
+  padding: 0.3rem;
+}
+
+th {
+  background-color: rgb(72, 185, 72);
+  color: white;
+}
+
+tr:nth-child(even) {
+  background-color: lightgray;
+}
