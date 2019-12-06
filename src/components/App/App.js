@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 import './App.css';
 import StudentForm from '../StudentForm/StudentForm';
 import StudentList from '../StudentList/StudentList';
 
 class App extends Component {
-  state = {
-    studentList: [],
-  };
+
 
   // This function is called by the StudentForm when the submit button is pressed
   addStudent = (newStudent) => {
@@ -25,6 +23,8 @@ class App extends Component {
       console.log(error);
     })
   }
+
+
 
   render() {
     return (
