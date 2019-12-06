@@ -6,6 +6,27 @@ import StudentList from '../StudentList/StudentList';
 
 class App extends Component {
 
+  state = {
+    studentList: [],
+  };
+
+  componentDidMount(){
+    console.log('in componentDidMount');
+    this.getStudents();
+  }
+
+getStudents(){
+    axios({
+        method: `GET`,
+        url: `/students`
+    }).then((response)=>{
+        console.log('back from GET', response);
+        this.setState( { studentList: response.data });  
+    }).catch((err)=>{
+        console.log('err getting student', err);  
+    })
+}
+
 
   // This function is called by the StudentForm when the submit button is pressed
   addStudent = (newStudent) => {
@@ -17,7 +38,10 @@ class App extends Component {
       data: newStudent
     }).then((response) => {
       console.log('back from POST', response);
-      this.props.getStudents()
+      this.setState({
+        studentList: [...this.state.studentList, newStudent]
+      })
+      this.getStudents()
     }).catch((error)=> {
       alert('Error adding newStudent.  See console for details')
       console.log(error);
@@ -36,7 +60,7 @@ class App extends Component {
         <StudentForm addStudent={this.addStudent}/>
 
         <p>Student list goes here.</p>
-        <StudentList />
+        <StudentList list={this.state.studentList}/>
       </div>
     );
   }
