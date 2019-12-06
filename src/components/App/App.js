@@ -1,19 +1,19 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 import './App.css';
 import StudentForm from '../StudentForm/StudentForm';
 import StudentList from '../StudentList/StudentList';
 
 class App extends Component {
-  state = {
-    studentList: [],
-  };
+
 
   // This function is called by the StudentForm when the submit button is pressed
   addStudent = (newStudent) => {
     console.log(newStudent);
     // POST your data here
   }
+
+
 
   render() {
     return (
