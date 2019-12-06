@@ -12,6 +12,17 @@ class App extends Component {
   addStudent = (newStudent) => {
     console.log(newStudent);
     // POST your data here
+    axios({
+      method: 'POST',
+      url: '/students',
+      data: newStudent
+    }).then((response) => {
+      console.log('back from POST', response);
+      
+    }).catch((error)=> {
+      alert('Error adding newStudent.  See console for details')
+      console.log(error);
+    })
   }
 
   render() {
