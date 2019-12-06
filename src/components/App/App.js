@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import axios from 'axios';
+import axios from 'axios';
 import './App.css';
 import StudentForm from '../StudentForm/StudentForm';
 import StudentList from '../StudentList/StudentList';
@@ -17,7 +17,7 @@ class App extends Component {
       data: newStudent
     }).then((response) => {
       console.log('back from POST', response);
-      
+      this.props.getStudents()
     }).catch((error)=> {
       alert('Error adding newStudent.  See console for details')
       console.log(error);
