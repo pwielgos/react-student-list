@@ -31,4 +31,18 @@ router.post('/', (req, res) => {
         });
 });
 
+router.delete('/:id', (req, res) => {
+    const studentId = req.params.id;
+    const sqlText = `DELETE FROM students WHERE id = $1;`;
+
+    pool.query(sqlText, [studentId])
+        .then((result) => {
+            res.sendStatus(201);
+        })
+        .catch((error) => {
+            console.log(`Error making database query ${sqlText}`, error);
+            res.sendStatus(500);
+        });
+});
+
 module.exports = router;
